@@ -118,6 +118,9 @@ function start (object, filename) {
   console.log()
 
   var server = jsonServer.create()
+
+
+
   server.use(jsonServer.defaults)
 
   // Rewriter
@@ -126,6 +129,9 @@ function start (object, filename) {
     var rewriter = jsonServer.rewriter(routes)
     server.use(rewriter)
   }
+
+
+  var wt = require('../src/wt.js')(server);
 
   server.use(router)
 
